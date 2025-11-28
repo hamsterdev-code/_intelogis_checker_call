@@ -40,6 +40,7 @@ import threading
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 import uvicorn
+import httpx
 
 # Настройка PyTorch для избежания ошибок "could not create a primitive"
 # Устанавливаем однопоточный режим для избежания конфликтов
@@ -245,9 +246,12 @@ logger.propagate = False
 # ==================== ИНИЦИАЛИЗАЦИЯ ====================
 
 # OpenAI клиент для анализа текста (OpenRouter)
+# Создаем httpx клиент явно, чтобы избежать проблем с параметром proxies
+http_client = httpx.Client(timeout=60.0)
 client = OpenAI(
     base_url=OPENAI_BASE_URL,
     api_key=OPENAI_API_KEY,
+    http_client=http_client,
 )
 
 # Модель Whisper (загружается один раз при старте)

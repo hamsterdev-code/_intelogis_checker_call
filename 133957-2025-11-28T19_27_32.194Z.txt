@@ -1,0 +1,1260 @@
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+File "/app/server.py", line 244, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+Traceback (most recent call last):
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 244, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+File "/app/server.py", line 248, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 244, in <module>
+client = OpenAI(
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+File "/app/server.py", line 248, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+File "/app/server.py", line 248, in <module>
+Traceback (most recent call last):
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/app/server.py", line 248, in <module>
+Traceback (most recent call last):
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+client = OpenAI(
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+File "/app/server.py", line 248, in <module>
+Traceback (most recent call last):
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+File "/app/server.py", line 248, in <module>
+Traceback (most recent call last):
+^^^^^^^
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+client = OpenAI(
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+^^^^^^^
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
+self._client = http_client or httpx.Client(
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+self._client = http_client or httpx.Client(
+^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+File "/app/server.py", line 248, in <module>
+^^^^^^^
+client = OpenAI(
+File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 738, in __init__
+super().__init__(
+File "/usr/local/lib/python3.11/site-packages/openai/_client.py", line 107, in __init__
+self._client = http_client or httpx.Client(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+^^^^^^^^^^^^^
