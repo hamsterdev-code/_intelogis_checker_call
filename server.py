@@ -302,12 +302,19 @@ def load_whisper_model():
             
     except Exception as e:
         logger.error(f"❌ Error loading Whisper model: {str(e)}")
+        logger.error(f"❌ Error type: {type(e).__name__}")
+        logger.error(f"❌ Error details: {traceback.format_exc()}")
         logger.error("💡 Try:")
         logger.error("   1. Check internet connection")
         logger.error("   2. Use smaller model: WHISPER_MODEL_SIZE=base")
         logger.error("   3. Install library: pip install openai-whisper")
         logger.error("   4. Set WHISPER_DEVICE=cpu to force CPU mode")
-        raise
+        logger.error("   5. Check available memory (model may be too large)")
+        # НЕ делаем raise - возвращаем None, чтобы процесс не упал
+        # Модель будет загружена позже при первом использовании
+        logger.warning("⚠️ Model loading failed, will retry on first use")
+        whisper_model = None
+        whisper_device = None
     
     return whisper_model
 
@@ -387,7 +394,35 @@ def transcribe_audio(url: str) -> str:
         # Use global variable directly to avoid unnecessary calls
         if whisper_model is None:
             logger.warning("⚠️ Model not loaded! Loading now...")
-            load_whisper_model()
+            # Retry loading with exponential backoff
+            max_retries = 3
+            retry_delay = 5
+            for attempt in range(max_retries):
+                try:
+                    load_whisper_model()
+                    if whisper_model is not None:
+                        logger.info(f"✅ Model loaded successfully on attempt {attempt + 1}")
+                        break
+                    else:
+                        if attempt < max_retries - 1:
+                            logger.warning(f"⚠️ Model loading failed, retrying in {retry_delay} seconds... (attempt {attempt + 1}/{max_retries})")
+                            time.sleep(retry_delay)
+                            retry_delay *= 2  # Exponential backoff
+                        else:
+                            logger.error("❌ Failed to load model after all retries")
+                            raise Exception("Whisper model could not be loaded after multiple attempts")
+                except Exception as e:
+                    if attempt < max_retries - 1:
+                        logger.warning(f"⚠️ Model loading error: {str(e)}, retrying in {retry_delay} seconds... (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(retry_delay)
+                        retry_delay *= 2
+                    else:
+                        logger.error(f"❌ Failed to load model after {max_retries} attempts: {str(e)}")
+                        raise
+        
+        if whisper_model is None:
+            raise Exception("Whisper model is not available")
+        
         model = whisper_model
         logger.info("✅ Using already loaded Whisper model (without reloading)")
         
@@ -1219,8 +1254,11 @@ def main():
         
         # Load Whisper model once at startup (will be reused)
         logger.info("Loading Whisper model...")
-        load_whisper_model()
-        logger.info("✅ Model loaded and will be reused for all transcriptions")
+        model_loaded = load_whisper_model()
+        if model_loaded is not None:
+            logger.info("✅ Model loaded and will be reused for all transcriptions")
+        else:
+            logger.warning("⚠️ Model not loaded at startup, will be loaded on first use")
         
         # Restore unsent results
         restore_unsent_results()
@@ -1278,8 +1316,46 @@ def main():
         logger.info("="*80)
     except Exception as e:
         logger.error(f"❌ Critical server error: {str(e)}")
+        logger.error(f"❌ Error type: {type(e).__name__}")
         logger.error(traceback.format_exc())
-        raise
+        # НЕ делаем raise - вместо этого логируем и продолжаем работу
+        # Это предотвратит бесконечные перезапуски Docker контейнера
+        logger.error("⚠️ Server will continue running despite initialization error")
+        logger.error("⚠️ Some features may not work until the issue is resolved")
+        # Пытаемся продолжить работу в основном цикле
+        # Если модель не загрузилась, она будет загружена при первом использовании
+        try:
+            logger.info("Attempting to continue with main processing loop...")
+            while True:
+                try:
+                    # Process 10 calls
+                    processed_count = process_calls_job()
+                    
+                    if processed_count == 0:
+                        # If list is empty - pause 15 minutes
+                        logger.info("")
+                        logger.info("="*80)
+                        logger.info("Call list is empty. Pausing for 15 minutes...")
+                        logger.info("="*80)
+                        logger.info("")
+                        time.sleep(15 * 60)  # 15 minutes = 900 seconds
+                    else:
+                        # If calls were processed - immediately get new ones (no pause)
+                        logger.info("Immediately requesting next batch of calls...")
+                        logger.info("")
+                        
+                except KeyboardInterrupt:
+                    raise
+                except Exception as e:
+                    logger.error(f"❌ Error in processing loop: {str(e)}")
+                    logger.error(traceback.format_exc())
+                    # Small pause before next attempt
+                    time.sleep(60)
+        except KeyboardInterrupt:
+            logger.info("")
+            logger.info("="*80)
+            logger.info("SERVER STOPPED (Ctrl+C)")
+            logger.info("="*80)
 
 
 if __name__ == "__main__":
