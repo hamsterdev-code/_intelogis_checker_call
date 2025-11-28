@@ -36,6 +36,10 @@ from contextlib import contextmanager
 from typing import List, Dict, Optional
 import asyncio
 import traceback
+import threading
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+import uvicorn
 
 # Настройка PyTorch для избежания ошибок "could not create a primitive"
 # Устанавливаем однопоточный режим для избежания конфликтов
@@ -1134,6 +1138,53 @@ def restore_unsent_results():
         logger.error(traceback.format_exc())
 
 
+# ==================== FASTAPI СЕРВЕР ====================
+
+# Создаем FastAPI приложение
+app = FastAPI(title="Calls Checker API", version="1.0.0")
+
+
+@app.get("/health")
+async def health_check():
+    """
+    Проверка здоровья сервиса
+    """
+    return {
+        "status": "ok",
+        "service": "calls_checker",
+        "timestamp": datetime.now().isoformat()
+    }
+
+
+@app.get("/logs")
+async def get_logs():
+    """
+    Скачивание лог-файла
+    """
+    log_file_path = LOG_FILE
+    
+    if not os.path.exists(log_file_path):
+        raise HTTPException(status_code=404, detail="Log file not found")
+    
+    return FileResponse(
+        path=log_file_path,
+        filename=os.path.basename(log_file_path),
+        media_type="text/plain"
+    )
+
+
+def run_fastapi_server():
+    """
+    Запускает FastAPI сервер в отдельном потоке
+    """
+    try:
+        logger.info("Starting FastAPI server on http://0.0.0.0:8000")
+        uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+    except Exception as e:
+        logger.error(f"❌ Error running FastAPI server: {str(e)}")
+        logger.error(traceback.format_exc())
+
+
 # ==================== ГЛАВНАЯ ФУНКЦИЯ ====================
 
 def main():
@@ -1169,6 +1220,13 @@ def main():
         
         # Restore unsent results
         restore_unsent_results()
+        
+        # Запускаем FastAPI сервер в отдельном потоке
+        logger.info("Starting FastAPI server in background thread...")
+        fastapi_thread = threading.Thread(target=run_fastapi_server, daemon=True)
+        fastapi_thread.start()
+        logger.info("✅ FastAPI server started on http://0.0.0.0:8000")
+        logger.info("   Endpoints: /health, /logs")
         
         logger.info("")
         logger.info("✅ Server ready")

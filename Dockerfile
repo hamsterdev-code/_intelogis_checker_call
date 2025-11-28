@@ -35,8 +35,8 @@ ENV USE_NNPACK=0
 ENV PYTORCH_DISABLE_NNPACK=1
 ENV PYTORCH_NNPACK_DISABLED=1
 
-# Открываем порт (если нужно для мониторинга, хотя приложение не веб-сервер)
-# EXPOSE 8000
+# Открываем порт для FastAPI сервера
+EXPOSE 8000
 
 # Запускаем приложение
 CMD ["python", "server.py"]
