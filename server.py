@@ -240,9 +240,34 @@ logger.propagate = False
 
 # ==================== ИНИЦИАЛИЗАЦИЯ ====================
 
+# Проверяем наличие API ключа
+if not OPENAI_API_KEY or OPENAI_API_KEY.strip() == "":
+    logger.error("❌ OPENAI_API_KEY не установлен! Установите переменную окружения OPENAI_API_KEY")
+    logger.error("   На Ubuntu: export OPENAI_API_KEY='ваш_ключ' или добавьте в .env файл")
+    raise ValueError("OPENAI_API_KEY не установлен")
+
+# Проверяем формат ключа (OpenRouter ключи начинаются с "sk-or-v1-")
+if not OPENAI_API_KEY.startswith("sk-or-v1-") and not OPENAI_API_KEY.startswith("sk-"):
+    logger.warning("⚠️ API ключ не соответствует ожидаемому формату OpenRouter (должен начинаться с 'sk-or-v1-')")
+    logger.warning("   Убедитесь, что используете правильный ключ от OpenRouter")
+
+# Логируем информацию о ключе (маскируем для безопасности)
+masked_key = OPENAI_API_KEY[:10] + "..." + OPENAI_API_KEY[-4:] if len(OPENAI_API_KEY) > 14 else "***"
+logger.info(f"🔑 Используется OpenRouter API ключ: {masked_key}")
+logger.info(f"🌐 OpenRouter URL: {OPENAI_BASE_URL}")
+logger.info(f"🤖 Модель: {OPENAI_MODEL}")
+
 # OpenAI клиент для анализа текста (OpenRouter)
 # Создаем httpx клиент явно, чтобы избежать проблем с параметром proxies
-http_client = httpx.Client(timeout=60.0)
+# Добавляем заголовки для OpenRouter (опционально, но могут помочь с некоторыми ключами)
+http_client = httpx.Client(
+    timeout=60.0,
+    headers={
+        "HTTP-Referer": "https://github.com/intelogis/call_checker",  # Опционально для OpenRouter
+        "X-Title": "Intelogis Call Checker",  # Опционально для OpenRouter
+    },
+    follow_redirects=True,
+)
 client = OpenAI(
     base_url=OPENAI_BASE_URL,
     api_key=OPENAI_API_KEY,
@@ -728,6 +753,25 @@ def analyze_call_text(text: str, team: str = "") -> Dict:
                 response = client.chat.completions.create(**request_params)
                 break  # Success, exit retry loop
             except Exception as e:
+                error_str = str(e)
+                # Проверяем на ошибки аутентификации
+                if "401" in error_str or "AuthenticationError" in str(type(e).__name__) or "User not found" in error_str:
+                    logger.error("❌ Ошибка аутентификации OpenRouter API!")
+                    logger.error("   Возможные причины:")
+                    logger.error("   1. API ключ недействителен или истек")
+                    logger.error("   2. API ключ не установлен в переменных окружения на Ubuntu")
+                    logger.error("   3. Неправильный формат ключа")
+                    logger.error(f"   Текущий ключ (маскированный): {OPENAI_API_KEY[:10]}...{OPENAI_API_KEY[-4:] if len(OPENAI_API_KEY) > 14 else '***'}")
+                    logger.error(f"   URL: {OPENAI_BASE_URL}")
+                    logger.error(f"   Модель: {OPENAI_MODEL}")
+                    logger.error("   Решение:")
+                    logger.error("   - Проверьте ключ на https://openrouter.ai/keys")
+                    logger.error("   - Убедитесь, что ключ установлен: echo $OPENAI_API_KEY")
+                    logger.error("   - Или добавьте в .env файл: OPENAI_API_KEY=ваш_ключ")
+                    logger.error(f"   Полная ошибка: {error_str}")
+                    # Не повторяем при ошибке аутентификации
+                    raise ValueError(f"Ошибка аутентификации OpenRouter API: {error_str}. Проверьте API ключ.")
+                
                 if attempt < max_retries - 1:
                     logger.warning(f"⚠️ AI request failed (attempt {attempt + 1}/{max_retries}): {str(e)}")
                     logger.warning("⚠️ Retrying with simplified prompt...")
