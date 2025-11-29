@@ -34,12 +34,7 @@ from datetime import datetime
 import sqlite3
 from contextlib import contextmanager
 from typing import List, Dict, Optional
-import asyncio
 import traceback
-import threading
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
-import uvicorn
 import httpx
 
 # Настройка PyTorch для избежания ошибок "could not create a primitive"
@@ -702,6 +697,8 @@ def analyze_call_text(text: str, team: str = "") -> Dict:
 
     try:
         logger.info("Analyzing text via AI...")
+        logger.debug(f"Text length: {len(text)} chars")
+        logger.debug(f"Text preview (first 200 chars): {text[:200]}")
         if team:
             logger.info(f"Logistics team: {team}")
         
@@ -709,15 +706,26 @@ def analyze_call_text(text: str, team: str = "") -> Dict:
         max_retries = 2
         for attempt in range(max_retries):
             try:
-                response = client.chat.completions.create(
-                    model=OPENAI_MODEL,
-                    messages=[
+                # Try to use response_format for JSON mode (if supported by model)
+                # Some models support this, others don't - we'll try and fall back if needed
+                request_params = {
+                    "model": OPENAI_MODEL,
+                    "messages": [
                         {
                             "role": "user",
                             "content": prompt
                         }
                     ]
-                )
+                }
+                
+                # Try to add JSON mode (may not be supported by all models/APIs)
+                try:
+                    request_params["response_format"] = {"type": "json_object"}
+                    logger.debug("Attempting to use JSON mode (response_format)")
+                except:
+                    pass  # If not supported, continue without it
+                
+                response = client.chat.completions.create(**request_params)
                 break  # Success, exit retry loop
             except Exception as e:
                 if attempt < max_retries - 1:
@@ -744,19 +752,42 @@ Return ONLY this JSON format, no other text:
             logger.error("❌ Empty or invalid response from AI API")
             raise ValueError("Empty or invalid response from AI API")
         
-        if not hasattr(response.choices[0], 'message') or not hasattr(response.choices[0].message, 'content'):
+        # Check finish_reason - might indicate content filtering or other issues
+        choice = response.choices[0]
+        finish_reason = getattr(choice, 'finish_reason', None)
+        if finish_reason:
+            logger.debug(f"AI finish_reason: {finish_reason}")
+            if finish_reason == 'content_filter':
+                logger.warning("⚠️ AI response was filtered by content moderation")
+                logger.warning("⚠️ This might indicate the content triggered safety filters")
+                logger.warning("⚠️ Returning default criteria (0,0,0,0)")
+                return {
+                    'criteria_1': 0.0,
+                    'criteria_2': 0.0,
+                    'criteria_3': 0.0,
+                    'criteria_4': 0.0
+                }
+            elif finish_reason == 'length':
+                logger.warning("⚠️ AI response was truncated due to length")
+            elif finish_reason not in ['stop', None]:
+                logger.warning(f"⚠️ Unexpected finish_reason: {finish_reason}")
+        
+        if not hasattr(choice, 'message') or not hasattr(choice.message, 'content'):
             logger.error("❌ Response missing message content")
             logger.error(f"   Response structure: {response}")
+            logger.error(f"   Finish reason: {finish_reason}")
             raise ValueError("Response missing message content")
         
         # Extract response
-        content = response.choices[0].message.content
+        content = choice.message.content
         if content is None:
             logger.error("❌ Message content is None")
+            logger.error(f"   Finish reason: {finish_reason}")
             raise ValueError("Message content is None")
         
         content = content.strip()
-        logger.debug(f"AI response: {content}")
+        logger.debug(f"AI response length: {len(content)} chars")
+        logger.debug(f"AI response preview (first 500 chars): {content[:500]}")
         
         # Log full response at INFO level for debugging (will be logged at ERROR if parsing fails)
         if not content or len(content) < 10:
@@ -767,9 +798,10 @@ Return ONLY this JSON format, no other text:
             logger.error("❌ Empty response from AI")
             raise ValueError("Empty response from AI")
         
-        # Check if AI refused to process the request
+        # Check if AI refused to process the request (English and Russian keywords)
         content_lower = content.lower()
         refusal_keywords = [
+            # English
             "i'm sorry",
             "i can't assist",
             "i cannot assist",
@@ -779,7 +811,49 @@ Return ONLY this JSON format, no other text:
             "i cannot",
             "sorry, but",
             "cannot process",
-            "unable to process"
+            "unable to process",
+            "i apologize",
+            "i'm not able",
+            # Russian
+            "извините",
+            "не могу",
+            "не могу помочь",
+            "не могу обработать",
+            "не могу проанализировать",
+            "не могу выполнить",
+            "не могу ответить",
+            "не могу предоставить",
+            "не могу дать",
+            "не могу вернуть",
+            "не могу вернуть ответ",
+            "не могу вернуть json",
+            "не могу вернуть результат",
+            "я не могу",
+            "я не могу помочь",
+            "я не могу обработать",
+            "я не могу проанализировать",
+            "я не могу выполнить",
+            "я не могу ответить",
+            "я не могу предоставить",
+            "я не могу дать",
+            "я не могу вернуть",
+            "я не могу вернуть ответ",
+            "я не могу вернуть json",
+            "я не могу вернуть результат",
+            "извините, но",
+            "извините, я",
+            "извините, я не могу",
+            "извините, я не могу помочь",
+            "извините, я не могу обработать",
+            "извините, я не могу проанализировать",
+            "извините, я не могу выполнить",
+            "извините, я не могу ответить",
+            "извините, я не могу предоставить",
+            "извините, я не могу дать",
+            "извините, я не могу вернуть",
+            "извините, я не могу вернуть ответ",
+            "извините, я не могу вернуть json",
+            "извините, я не могу вернуть результат",
         ]
         
         if any(keyword in content_lower for keyword in refusal_keywords):
@@ -787,6 +861,21 @@ Return ONLY this JSON format, no other text:
             logger.warning("⚠️ This might be due to content moderation or policy restrictions")
             logger.warning("⚠️ Returning default criteria (0,0,0,0)")
             # Return default values when AI refuses
+            return {
+                'criteria_1': 0.0,
+                'criteria_2': 0.0,
+                'criteria_3': 0.0,
+                'criteria_4': 0.0
+            }
+        
+        # Check if response looks like JSON before trying to parse
+        # JSON should start with { or [ or be a number/string (but we expect an object)
+        content_stripped = content.strip()
+        if not (content_stripped.startswith('{') or content_stripped.startswith('[')):
+            # Response doesn't look like JSON - might be an error message
+            logger.warning(f"⚠️ AI response doesn't look like JSON (doesn't start with {{ or [)")
+            logger.warning(f"   Response content (first 500 chars): {content[:500]}")
+            logger.warning("⚠️ Returning default criteria (0,0,0,0)")
             return {
                 'criteria_1': 0.0,
                 'criteria_2': 0.0,
@@ -807,7 +896,13 @@ Return ONLY this JSON format, no other text:
                 logger.error(f"   JSON string: {json_str[:500]}")  # Limit length for logging
                 logger.error(f"   Full content length: {len(content)} chars")
                 logger.error(f"   Full content (first 1000 chars): {content[:1000]}")
-                raise ValueError(f"Invalid JSON in AI response: {str(e)}")
+                logger.warning("⚠️ Returning default criteria (0,0,0,0) due to JSON parse error")
+                return {
+                    'criteria_1': 0.0,
+                    'criteria_2': 0.0,
+                    'criteria_3': 0.0,
+                    'criteria_4': 0.0
+                }
         else:
             # Try to parse entire content as JSON
             try:
@@ -816,7 +911,13 @@ Return ONLY this JSON format, no other text:
                 logger.error(f"❌ Failed to parse JSON from response: {e}")
                 logger.error(f"   Full content length: {len(content)} chars")
                 logger.error(f"   Full content (first 1000 chars): {content[:1000]}")
-                raise ValueError(f"Invalid JSON in AI response: {str(e)}")
+                logger.warning("⚠️ Returning default criteria (0,0,0,0) due to JSON parse error")
+                return {
+                    'criteria_1': 0.0,
+                    'criteria_2': 0.0,
+                    'criteria_3': 0.0,
+                    'criteria_4': 0.0
+                }
         
         # Check all criteria are present
         if not all(key in result for key in ["criteria_1", "criteria_2", "criteria_3", "criteria_4"]):
@@ -1177,53 +1278,6 @@ def restore_unsent_results():
         logger.error(traceback.format_exc())
 
 
-# ==================== FASTAPI СЕРВЕР ====================
-
-# Создаем FastAPI приложение
-app = FastAPI(title="Calls Checker API", version="1.0.0")
-
-
-@app.get("/health")
-async def health_check():
-    """
-    Проверка здоровья сервиса
-    """
-    return {
-        "status": "ok",
-        "service": "calls_checker",
-        "timestamp": datetime.now().isoformat()
-    }
-
-
-@app.get("/logs")
-async def get_logs():
-    """
-    Скачивание лог-файла
-    """
-    log_file_path = LOG_FILE
-    
-    if not os.path.exists(log_file_path):
-        raise HTTPException(status_code=404, detail="Log file not found")
-    
-    return FileResponse(
-        path=log_file_path,
-        filename=os.path.basename(log_file_path),
-        media_type="text/plain"
-    )
-
-
-def run_fastapi_server():
-    """
-    Запускает FastAPI сервер в отдельном потоке
-    """
-    try:
-        logger.info("Starting FastAPI server on http://0.0.0.0:8000")
-        uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
-    except Exception as e:
-        logger.error(f"❌ Error running FastAPI server: {str(e)}")
-        logger.error(traceback.format_exc())
-
-
 # ==================== ГЛАВНАЯ ФУНКЦИЯ ====================
 
 def main():
@@ -1262,13 +1316,6 @@ def main():
         
         # Restore unsent results
         restore_unsent_results()
-        
-        # Запускаем FastAPI сервер в отдельном потоке
-        logger.info("Starting FastAPI server in background thread...")
-        fastapi_thread = threading.Thread(target=run_fastapi_server, daemon=True)
-        fastapi_thread.start()
-        logger.info("✅ FastAPI server started on http://0.0.0.0:8000")
-        logger.info("   Endpoints: /health, /logs")
         
         logger.info("")
         logger.info("✅ Server ready")
