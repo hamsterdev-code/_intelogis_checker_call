@@ -50,7 +50,7 @@ API_COOKIE_PHPSESSID = os.getenv(
 # OpenRouter API Key
 OPENAI_API_KEY = os.getenv(
     "OPENAI_API_KEY",
-    "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"
+    "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"
 )
 
 # OpenRouter базовый URL
