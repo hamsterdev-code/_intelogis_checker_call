@@ -45,19 +45,19 @@ API_COOKIE_PHPSESSID = os.getenv(
     "ksaaks5sf3mn596r9dufhfkr03hu3cb4q0b22qdl78pm23ch"
 )
 
-# ==================== OPENAI НАСТРОЙКИ ====================
+# ==================== BOTHUB НАСТРОЙКИ ====================
 
-# OpenRouter API Key
+# BotHub API Key
 OPENAI_API_KEY = os.getenv(
-    "OPENAI_API_KEY",
-    "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"
+    "BOTHUB_API_KEY",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhZDUzZDY5LTc5YTAtNGIzZS1hZWQ4LThmNWZkMTU2OGNiOSIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3NjQ1OTEzMjAsImV4cCI6MjA4MDE2NzMyMH0.KJ6Il1hp1DuoA7_oV5aqgXLEDd8BS9M-XDXMUcLiA-4"
 )
 
-# OpenRouter базовый URL
-OPENAI_BASE_URL = "https://openrouter.ai/api/v1"
+# BotHub базовый URL
+OPENAI_BASE_URL = "https://bothub.chat/api/v2/openai/v1"
 
-# Модель для анализа
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "openai/gpt-4o-mini")
+# Модель для анализа (gpt-4.1-mini - оптимальный баланс цены и качества)
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
 
 # ==================== WHISPER НАСТРОЙКИ ====================
 
