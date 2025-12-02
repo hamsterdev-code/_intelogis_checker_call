@@ -122,6 +122,9 @@ from config import (
     API_COOKIE_DDG1,
     API_COOKIE_JWT_CHECK,
     API_COOKIE_PHPSESSID,
+    API_AUTH_LOGIN,
+    API_AUTH_PASSWORD,
+    API_AUTH_SIGNIN,
     BASE_DIR
 )
 
@@ -131,7 +134,11 @@ from config import (
 auth_token = API_AUTH_TOKEN
 cookie_ddg1 = API_COOKIE_DDG1
 cookie_jwt_check = API_COOKIE_JWT_CHECK
+cookie_jwt_check_name = 'jwtCheck6925a697e90a5'  # Имя cookie jwtCheck (может меняться)
 cookie_phpsessid = API_COOKIE_PHPSESSID
+
+# Флаг для отслеживания, была ли выполнена начальная авторизация
+_initial_auth_done = False
 
 # Создаем глобальную сессию для автоматического управления cookies
 api_session = requests.Session()
@@ -158,27 +165,134 @@ def update_session_auth():
     })
     
     # Устанавливаем cookies
-    api_session.cookies.update({
+    cookies_to_set = {
         '__ddg1_': cookie_ddg1,
-        'jwtCheck6925a697e90a5': cookie_jwt_check,
+        cookie_jwt_check_name: cookie_jwt_check,  # Используем актуальное имя cookie
         'PHPSESSID': cookie_phpsessid,
-    })
+    }
+    api_session.cookies.update(cookies_to_set)
 
 
 def refresh_auth():
     """
     Функция для обновления токенов авторизации
-    TODO: Реализовать логику получения новых токенов
+    Выполняет авторизацию через API и обновляет токены и cookies
     """
-    logger.error("❌ Not authorized! Token refresh required.")
-    raise Exception("Not authorized. Need to refresh authorization tokens.")
+    global auth_token, cookie_ddg1, cookie_jwt_check, cookie_jwt_check_name, cookie_phpsessid
+    
+    try:
+        logger.info("🔄 Attempting to refresh authorization tokens...")
+        
+        # Создаем временную сессию для авторизации (без текущих токенов)
+        auth_session = requests.Session()
+        
+        # Устанавливаем заголовки для авторизации
+        auth_session.headers.update({
+            'accept': 'application/json',
+            'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+            'origin': 'https://develop.intelogis.ru',
+            'priority': 'u=1, i',
+            'referer': 'https://develop.intelogis.ru/',
+            'sec-ch-ua': '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36',
+        })
+        
+        # Подготавливаем данные для multipart/form-data
+        files = {
+            'login': (None, API_AUTH_LOGIN),
+            'password': (None, API_AUTH_PASSWORD),
+            'castPhoneFormat': (None, '0'),
+        }
+        
+        # Выполняем запрос авторизации
+        logger.debug(f"Auth URL: {API_AUTH_SIGNIN}")
+        logger.debug(f"Login: {API_AUTH_LOGIN}")
+        
+        response = auth_session.post(
+            API_AUTH_SIGNIN,
+            files=files,
+            timeout=API_REQUEST_TIMEOUT
+        )
+        
+        response.raise_for_status()
+        
+        # Парсим ответ
+        data = response.json()
+        
+        if 'data' not in data or 'token' not in data['data']:
+            logger.error(f"❌ Invalid response format from auth API: {data}")
+            raise ValueError("Invalid response format: missing 'data.token'")
+        
+        # Извлекаем токен
+        new_token = data['data']['token']
+        logger.info("✅ Successfully received new token")
+        
+        # Обновляем глобальные переменные
+        auth_token = new_token
+        
+        # Извлекаем cookies из ответа
+        # Проверяем все возможные cookies
+        response_cookies = response.cookies
+        
+        # Копируем все cookies из ответа в auth_session (они уже там, но убедимся)
+        # Также обновляем глобальные переменные для основных cookies
+        
+        # Обновляем cookies если они есть в ответе
+        # Используем get_dict() для удобного доступа к cookies как к словарю
+        cookies_dict = response_cookies.get_dict()
+        
+        if '__ddg1_' in cookies_dict:
+            cookie_ddg1 = cookies_dict['__ddg1_']
+            logger.debug("Updated __ddg1_ cookie")
+        
+        # Ищем jwtCheck cookie (может иметь разные имена с хешем)
+        # Итерируемся по объектам Cookie, используя .name для получения имени
+        jwt_check_found = False
+        for cookie in response_cookies:
+            cookie_name = cookie.name
+            if 'jwtCheck' in cookie_name.lower():
+                cookie_jwt_check = cookie.value
+                cookie_jwt_check_name = cookie_name  # Сохраняем актуальное имя cookie
+                logger.debug(f"Updated {cookie_name} cookie")
+                jwt_check_found = True
+                break
+        
+        if not jwt_check_found:
+            logger.warning("⚠️ jwtCheck cookie not found in response")
+        
+        if 'PHPSESSID' in cookies_dict:
+            cookie_phpsessid = cookies_dict['PHPSESSID']
+            logger.debug("Updated PHPSESSID cookie")
+        
+        # Копируем все cookies из auth_session в api_session
+        api_session.cookies.update(auth_session.cookies)
+        
+        # Обновляем сессию с новыми данными
+        update_session_auth()
+        
+        logger.info("✅ Authorization tokens refreshed successfully")
+        
+    except requests.exceptions.HTTPError as e:
+        logger.error(f"❌ HTTP error during authorization: {e}")
+        if hasattr(e.response, 'text'):
+            logger.error(f"   Response: {e.response.text}")
+        raise Exception(f"Failed to refresh authorization: HTTP {e.response.status_code}")
+    except Exception as e:
+        logger.error(f"❌ Error refreshing authorization tokens: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise Exception(f"Failed to refresh authorization: {str(e)}")
 
 
 def make_authenticated_request(method: str, url: str, **kwargs) -> requests.Response:
     """
     Выполняет HTTP запрос с авторизацией
     Использует requests.Session для автоматического управления cookies
-    При получении 401 пытается обновить токены
+    При получении 401 пытается обновить токены и повторяет запрос
     
     Args:
         method: HTTP метод (GET, POST, и т.д.)
@@ -200,7 +314,19 @@ def make_authenticated_request(method: str, url: str, **kwargs) -> requests.Resp
     # Check authorization status
     if response.status_code == 401:
         logger.warning("⚠️ Received 401 Unauthorized status. Attempting to refresh tokens...")
-        refresh_auth()  # This will raise an exception, logic not implemented yet
+        try:
+            refresh_auth()
+            # После обновления токенов повторяем запрос
+            logger.info("🔄 Retrying request with new tokens...")
+            response = api_session.request(method, url, **kwargs)
+            
+            # Если снова 401, значит авторизация не удалась
+            if response.status_code == 401:
+                logger.error("❌ Still unauthorized after token refresh")
+                raise Exception("Authorization failed: still receiving 401 after token refresh")
+        except Exception as e:
+            logger.error(f"❌ Failed to refresh authorization: {str(e)}")
+            raise
         
     return response
 
@@ -1218,6 +1344,8 @@ def process_calls_job():
     Returns:
         int: Количество обработанных звонков (0 если список был пустым)
     """
+    global _initial_auth_done
+    
     job_start_time = datetime.now()
     logger.info("")
     logger.info(f"{'#'*80}")
@@ -1226,6 +1354,17 @@ def process_calls_job():
     logger.info(f"{'#'*80}")
     
     try:
+        # Авторизация в самом начале (только один раз)
+        if not _initial_auth_done:
+            logger.info("🔐 Performing initial authorization...")
+            try:
+                refresh_auth()
+                _initial_auth_done = True
+                logger.info("✅ Initial authorization completed")
+            except Exception as e:
+                logger.error(f"❌ Initial authorization failed: {str(e)}")
+                logger.warning("⚠️ Continuing with existing tokens...")
+        
         # 1. Get calls from API (count=10)
         calls = fetch_calls_from_api(count=10)
         

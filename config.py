@@ -45,6 +45,13 @@ API_COOKIE_PHPSESSID = os.getenv(
     "ksaaks5sf3mn596r9dufhfkr03hu3cb4q0b22qdl78pm23ch"
 )
 
+# Данные для авторизации
+API_AUTH_LOGIN = os.getenv("API_AUTH_LOGIN", "+79043878798")
+API_AUTH_PASSWORD = os.getenv("API_AUTH_PASSWORD", "xXBiWpzOFJ13f10omlBA")
+
+# Endpoint для авторизации
+API_AUTH_SIGNIN = f"{API_BASE_URL}/auth/signIn"
+
 # ==================== BOTHUB НАСТРОЙКИ ====================
 
 # BotHub API Key
@@ -57,13 +64,13 @@ OPENAI_API_KEY = os.getenv(
 OPENAI_BASE_URL = "https://bothub.chat/api/v2/openai/v1"
 
 # Модель для анализа (gpt-4.1-mini - оптимальный баланс цены и качества)
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-nano")
 
 # ==================== WHISPER НАСТРОЙКИ ====================
 
 # Размер модели Whisper: tiny, base, small, medium, large, large-v2, large-v3
 # Рекомендуется: base для баланса скорости и качества
-WHISPER_MODEL_SIZE = os.getenv("WHISPER_MODEL_SIZE", "medium")
+WHISPER_MODEL_SIZE = os.getenv("WHISPER_MODEL_SIZE", "small")
 
 # Язык распознавания
 WHISPER_LANGUAGE = "ru"

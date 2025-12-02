@@ -1,0 +1,209 @@
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - 🔑 Используется BotHub API ключ: eyJhbGciOi...iA-4
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - 🌐 BotHub URL: https://bothub.chat/api/v2/openai/v1
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - 🤖 Модель: gpt-4.1-nano
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - CALL ANALYSIS SERVER STARTING
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - API GET: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - API POST: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze/result
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Calls per batch: 10
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Pause when list is empty: 15 minutes
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Database: D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\calls_database.db
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Log file: D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\calls_analyzer.log
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Whisper model: small
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Device: auto
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Beam size: 2
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - OpenAI model: gpt-4.1-nano
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Initializing...
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - ✅ Database initialized
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Setting up authorization...
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Loading Whisper model...
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - ℹ️ CUDA not available, using CPU
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Loading Whisper model (small)...
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - Device: cpu
+2025-12-02 20:05:19 - CallsAnalyzer - INFO - ⏳ Loading model into memory...
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ✅ Whisper model loaded successfully and will be reused
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ✅ Model loaded and will be reused for all transcriptions
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - Checking unsent results in DB...
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ✅ All results sent
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ✅ Server ready
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - Mode: continuous processing of 10 calls per batch
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - If list is empty - pause 15 minutes
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - Press Ctrl+C to stop
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - Starting processing immediately on startup...
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ################################################################################
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ### CALL ANALYSIS TASK STARTED
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ### Time: 2025-12-02 20:05:22
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - ################################################################################
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - 🔐 Performing initial authorization...
+2025-12-02 20:05:22 - CallsAnalyzer - INFO - 🔄 Attempting to refresh authorization tokens...
+2025-12-02 20:05:23 - CallsAnalyzer - INFO - ✅ Successfully received new token
+2025-12-02 20:05:23 - CallsAnalyzer - ERROR - ❌ Error refreshing authorization tokens: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:23 - CallsAnalyzer - ERROR - Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 253, in refresh_auth
+    if 'jwtCheck' in cookie_name.lower():
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'lower'
+
+2025-12-02 20:05:23 - CallsAnalyzer - ERROR - ❌ Initial authorization failed: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:23 - CallsAnalyzer - WARNING - ⚠️ Continuing with existing tokens...
+2025-12-02 20:05:23 - CallsAnalyzer - INFO - Requesting calls from API (count=10)...
+2025-12-02 20:05:23 - CallsAnalyzer - INFO - URL: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze
+2025-12-02 20:05:23 - CallsAnalyzer - WARNING - ⚠️ Received 401 Unauthorized status. Attempting to refresh tokens...
+2025-12-02 20:05:23 - CallsAnalyzer - INFO - 🔄 Attempting to refresh authorization tokens...
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - ✅ Successfully received new token
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - ❌ Error refreshing authorization tokens: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 253, in refresh_auth
+    if 'jwtCheck' in cookie_name.lower():
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'lower'
+
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - ❌ Failed to refresh authorization: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - ❌ Error requesting calls from API: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 253, in refresh_auth
+    if 'jwtCheck' in cookie_name.lower():
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'lower'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 1271, in fetch_calls_from_api
+    response = make_authenticated_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 313, in make_authenticated_request
+    refresh_auth()
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 283, in refresh_auth
+    raise Exception(f"Failed to refresh authorization: {str(e)}")
+Exception: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+
+2025-12-02 20:05:24 - CallsAnalyzer - WARNING - No calls to process
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - ################################################################################
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - ### CALL ANALYSIS TASK STARTED
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - ### Time: 2025-12-02 20:05:24
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - ################################################################################
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - 🔐 Performing initial authorization...
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - 🔄 Attempting to refresh authorization tokens...
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - ✅ Successfully received new token
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - ❌ Error refreshing authorization tokens: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 253, in refresh_auth
+    if 'jwtCheck' in cookie_name.lower():
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'lower'
+
+2025-12-02 20:05:24 - CallsAnalyzer - ERROR - ❌ Initial authorization failed: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:24 - CallsAnalyzer - WARNING - ⚠️ Continuing with existing tokens...
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - Requesting calls from API (count=10)...
+2025-12-02 20:05:24 - CallsAnalyzer - INFO - URL: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze
+2025-12-02 20:05:25 - CallsAnalyzer - WARNING - ⚠️ Received 401 Unauthorized status. Attempting to refresh tokens...
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - 🔄 Attempting to refresh authorization tokens...
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - ✅ Successfully received new token
+2025-12-02 20:05:25 - CallsAnalyzer - ERROR - ❌ Error refreshing authorization tokens: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:25 - CallsAnalyzer - ERROR - Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 253, in refresh_auth
+    if 'jwtCheck' in cookie_name.lower():
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'lower'
+
+2025-12-02 20:05:25 - CallsAnalyzer - ERROR - ❌ Failed to refresh authorization: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:25 - CallsAnalyzer - ERROR - ❌ Error requesting calls from API: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+2025-12-02 20:05:25 - CallsAnalyzer - ERROR - Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 253, in refresh_auth
+    if 'jwtCheck' in cookie_name.lower():
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'lower'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 1271, in fetch_calls_from_api
+    response = make_authenticated_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 313, in make_authenticated_request
+    refresh_auth()
+  File "D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\server.py", line 283, in refresh_auth
+    raise Exception(f"Failed to refresh authorization: {str(e)}")
+Exception: Failed to refresh authorization: 'Cookie' object has no attribute 'lower'
+
+2025-12-02 20:05:25 - CallsAnalyzer - WARNING - No calls to process
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - Call list is empty. Pausing for 15 minutes...
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:05:25 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:29 - CallsAnalyzer - INFO - 
+2025-12-02 20:05:29 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:05:29 - CallsAnalyzer - INFO - SERVER STOPPED (Ctrl+C)
+2025-12-02 20:05:29 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - 🔑 Используется BotHub API ключ: eyJhbGciOi...iA-4
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - 🌐 BotHub URL: https://bothub.chat/api/v2/openai/v1
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - 🤖 Модель: gpt-4.1-nano
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - CALL ANALYSIS SERVER STARTING
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - API GET: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - API POST: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze/result
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Calls per batch: 10
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Pause when list is empty: 15 minutes
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Database: D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\calls_database.db
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Log file: D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\calls_analyzer.log
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Whisper model: small
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Device: auto
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Beam size: 2
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - OpenAI model: gpt-4.1-nano
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Initializing...
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - ✅ Database initialized
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Setting up authorization...
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Loading Whisper model...
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - ℹ️ CUDA not available, using CPU
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Loading Whisper model (small)...
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - Device: cpu
+2025-12-02 20:08:29 - CallsAnalyzer - INFO - ⏳ Loading model into memory...
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ✅ Whisper model loaded successfully and will be reused
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ✅ Model loaded and will be reused for all transcriptions
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - Checking unsent results in DB...
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ✅ All results sent
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - 
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ✅ Server ready
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - Mode: continuous processing of 10 calls per batch
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - If list is empty - pause 15 minutes
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - Press Ctrl+C to stop
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - 
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - Starting processing immediately on startup...
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - 
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ################################################################################
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ### CALL ANALYSIS TASK STARTED
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ### Time: 2025-12-02 20:08:31
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - ################################################################################
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - 🔐 Performing initial authorization...
+2025-12-02 20:08:31 - CallsAnalyzer - INFO - 🔄 Attempting to refresh authorization tokens...
+2025-12-02 20:08:32 - CallsAnalyzer - INFO - ✅ Successfully received new token
+2025-12-02 20:08:32 - CallsAnalyzer - WARNING - ⚠️ jwtCheck cookie not found in response
+2025-12-02 20:08:32 - CallsAnalyzer - INFO - ✅ Authorization tokens refreshed successfully
+2025-12-02 20:08:32 - CallsAnalyzer - INFO - ✅ Initial authorization completed
+2025-12-02 20:08:32 - CallsAnalyzer - INFO - Requesting calls from API (count=10)...
+2025-12-02 20:08:32 - CallsAnalyzer - INFO - URL: https://saas.intelogis.ru/digitalLogistILS/callsAnalyze
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - ✅ Received calls: 10
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - 
+--- Call 1/10 ---
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - ============================================================
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - Processing call ID: 380649
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - URL: https://app.comagic.ru/system/media/talk/5256891472/71f58101ed5f3844924fd5fa61aa5c79/
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - Team: Группа исполнения заявок,Группа привлечения ГП
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - Downloading audio: https://app.comagic.ru/system/media/talk/5256891472/71f58101ed5f3844924fd5fa61aa5c79/
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - Audio saved: D:\web-dev\projects\intelogis\calls_checker\checker\github\_intelogis_checker_call\temp_audio\tmplbj26syx.mp3
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - ✅ Using already loaded Whisper model (without reloading)
+2025-12-02 20:08:33 - CallsAnalyzer - INFO - Transcribing speech...
+2025-12-02 20:08:36 - CallsAnalyzer - INFO - 
+2025-12-02 20:08:36 - CallsAnalyzer - INFO - ================================================================================
+2025-12-02 20:08:36 - CallsAnalyzer - INFO - SERVER STOPPED (Ctrl+C)
+2025-12-02 20:08:36 - CallsAnalyzer - INFO - ================================================================================
